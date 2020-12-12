@@ -33,6 +33,8 @@ public class CovidController {
 	private CovidWebApiEstadosService coviApiEstadosService;
 	private CovidWebApiPaisesService coviApiPaisesService;
 	
+	
+	
 	/**
 	 * Contrutor que recebe as classes Service de consultas de dados da COVID-19 em Estados e Paises
 	 * @param estadosService A instancia de classe de serviço para consulta de Estados
@@ -41,6 +43,11 @@ public class CovidController {
 	public CovidController(CovidWebApiEstadosService estadosService, CovidWebApiPaisesService paisesService) {
 		this.coviApiEstadosService = estadosService;
 		this.coviApiPaisesService = paisesService;
+	}
+	
+	@GetMapping("teste")
+	public String teste() {
+		return "Testando endpoint!";
 	}
 	
 	/**
