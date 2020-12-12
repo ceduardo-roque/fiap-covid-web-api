@@ -9,9 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,6 +17,11 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import okhttp3.ResponseBody;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 
 @Component
@@ -46,9 +48,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             Retrofit retrofit = new Retrofit.Builder().baseUrl(remoteServer).build();
 
             SecurityRemote service = retrofit.create(SecurityRemote.class);
-            var resposta = service.validarToken(token.replace("Bearer ", "")).execute();
+            Response<ResponseBody> resposta = service.validarToken(token.replace("Bearer ", "")).execute();
 
-            var statusCode = resposta.code();
+            int statusCode = resposta.code();
             System.out.println("resposta validacao token ->" + statusCode);
 
             if (statusCode == 200) {
