@@ -27,7 +27,7 @@ import br.com.fiap.wsrest.covidwebapi.service.CovidWebApiPaisesService;
  *
  */
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("covid")
 public class CovidController {
 	
