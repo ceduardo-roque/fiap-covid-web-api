@@ -22,12 +22,13 @@ import br.com.fiap.wsrest.covidwebapi.service.CovidWebApiEstadosService;
 import br.com.fiap.wsrest.covidwebapi.service.CovidWebApiPaisesService;
 
 /**
- * Controller responsável por expor todos os métodos da API expostos nesta aplicação.
+ * Controller responsï¿½vel por expor todos os mï¿½todos da API expostos nesta aplicaï¿½ï¿½o.
  * @author Carlos Eduardo Roque da Silva
  *
  */
 @RestController
 @RequestMapping("covid")
+@CrossOrigin()
 public class CovidController {
 	
 	//private final Logger logger = LoggerFactory.getLogger(CovidController.class);
@@ -38,8 +39,8 @@ public class CovidController {
 	
 	/**
 	 * Contrutor que recebe as classes Service de consultas de dados da COVID-19 em Estados e Paises
-	 * @param estadosService A instancia de classe de serviço para consulta de Estados
-	 * @param paisesService A instancia de classe de serviço para consulta de Paises
+	 * @param estadosService A instancia de classe de serviï¿½o para consulta de Estados
+	 * @param paisesService A instancia de classe de serviï¿½o para consulta de Paises
 	 */
 	public CovidController(CovidWebApiEstadosService estadosService, CovidWebApiPaisesService paisesService) {
 		this.coviApiEstadosService = estadosService;
@@ -52,7 +53,7 @@ public class CovidController {
 	}
 	
 	/**
-	 * Método responsável por consultar os dados da Covid-19 em um Estado específico e em um range de datas
+	 * Mï¿½todo responsï¿½vel por consultar os dados da Covid-19 em um Estado especï¿½fico e em um range de datas
 	 * @param estado O estado a ser consultado
 	 * @param periodoDe A data inicial da consulta no formato yyyy-MM-dd
 	 * @param periodoAte A data final da consulta no formato yyyy-MM-dd
@@ -83,7 +84,7 @@ public class CovidController {
 	}
 	
 	/**
-	 * Método responsável por consultar os dados da Covid-19 em diversos Estados e em um range de datas
+	 * Mï¿½todo responsï¿½vel por consultar os dados da Covid-19 em diversos Estados e em um range de datas
 	 * @param estados O estados a serem consultados
 	 * @param periodoDe A data inicial da consulta no formato yyyy-MM-dd
 	 * @param periodoAte A data final da consulta no formato yyyy-MM-dd
@@ -115,8 +116,8 @@ public class CovidController {
 	}
 	
 	/**
-	 * Método responsável por consultar os dados da Covid-19 em um País específico e em um range de datas
-	 * @param pais O país a ser consultado
+	 * Mï¿½todo responsï¿½vel por consultar os dados da Covid-19 em um Paï¿½s especï¿½fico e em um range de datas
+	 * @param pais O paï¿½s a ser consultado
 	 * @param periodoDe A data inicial da consulta no formato yyyy-MM-dd
 	 * @param periodoAte A data final da consulta no formato yyyy-MM-dd
 	 * @return Um JSON representando o objeto RetornoPaisDTO
@@ -146,8 +147,8 @@ public class CovidController {
 	}
 	
 	/**
-	 * Método responsável por consultar os dados da Covid-19 em Países específico e em um range de datas
-	 * @param pais Os países a serem consultado
+	 * Mï¿½todo responsï¿½vel por consultar os dados da Covid-19 em Paï¿½ses especï¿½fico e em um range de datas
+	 * @param pais Os paï¿½ses a serem consultado
 	 * @param periodoDe A data inicial da consulta no formato yyyy-MM-dd
 	 * @param periodoAte A data final da consulta no formato yyyy-MM-dd
 	 * @return Um JSON representando uma collection do objeto retornado como List<RetornoPaisDTO>
@@ -177,7 +178,7 @@ public class CovidController {
 	}
 	
 	/**
-	 * Método responsável por retornar a consolidação dos dados mundiais da COVID-19
+	 * Mï¿½todo responsï¿½vel por retornar a consolidaï¿½ï¿½o dos dados mundiais da COVID-19
 	 * @return Um JSON representando o objeto RetornoGlobalDTO
 	 */
 	@GetMapping("global")
