@@ -1,4 +1,4 @@
-securityRemote: http://localhost:8082/
+securityRemote: https://sts-fiap.herokuapp.com/
 springfox:
   documentation:
     swagger-ui:
